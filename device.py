@@ -44,7 +44,8 @@ class Serial_Manager(Manager_Base):
                     if n:
                         self.device_signal.emit(self.__ser.read_all())
                     sleep(0.016)
-        except:
+        except Exception as e:
+            print(f"Serial Error: {e}")
             pass
         self.connection_signal.emit(False)
 
